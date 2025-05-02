@@ -49,7 +49,7 @@ def sentDistr():
         histPlot(boek,boek.name)
 
 def main():
-    file_in = 'Results.xlsx'
+    file_in = 'spacyStatistieken.xlsx'
    
     tables  = pd.read_excel(file_in, sheet_name=None)
     sheets = list(tables.keys())
