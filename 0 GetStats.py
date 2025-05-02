@@ -5,9 +5,7 @@ Created on Mon Jun 24 09:37:09 2024
 @author: basbr
 """
 import spacy
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 from pathlib import Path
 
 def getFiles():
