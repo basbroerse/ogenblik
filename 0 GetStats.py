@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 def getFiles():
-    #path = Path('\Code\Corpus_cleaned_21_NL\Corpus')
     path = Path.cwd()
     files = list(path.rglob('*.txt'))
     names = []
@@ -26,12 +25,10 @@ def getFiles():
     return files, names
 
 def getStats(file):
-    #print(file)
     nlp = spacy.load('nl_core_news_sm')
     nlp.max_length = 1100000
     
     doc = nlp(open(file, errors='backslashreplace', encoding='UTF-8').read())
-    # .replace('\n\n',' ').replace('\n','').replace('\t','')
     
     lengtes  = []       # lijst voor zinslengtes
     dep_lens = []       # lijst voor afstanden tussen hoofden en kinderen
@@ -63,7 +60,6 @@ def getStats(file):
     return lengtes, tokens, unique_lems, dep_lens, pos
 
 def main():
-    #path = r'C:\\Users\\basbr\\OneDrive\\Documenten\\Studie\\Redacteur-editor\\4 Scriptie\\Code\\Corpus_cleaned_70'
     zinnen_out = 'zinnen.csv'
     tokens_out = 'tokens.csv'
     lemmas_out = 'lemmas.csv'
@@ -104,13 +100,6 @@ def main():
     dfL.to_csv(lemmas_out)
     dfD.to_csv(dependencies_out)
     dfP.to_csv(pos_out)
-    
-    '''
-    df = pd.DataFrame((zinslengtes,tokens,lemmas,basic_words), index=['zinslengtes','tokens','lemmas','basic_words'],columns=names).transpose()
-    
-    with pd.ExcelWriter(file_out) as writer:
-        df.to_excel(writer)
-    '''
         
     print('Klaar! %i boeken verwerkt' %n)
     
