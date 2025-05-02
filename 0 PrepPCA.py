@@ -6,13 +6,9 @@ Created on Mon Apr 14 12:00:29 2025
 """
 
 import spacy
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from pathlib import Path
 
 def getFiles():
-    #path = Path('\Code\Corpus_cleaned_21_NL\Corpus')
     path = Path.cwd()
     files = list(path.rglob('*.txt'))
     names = []
@@ -27,7 +23,6 @@ def getFiles():
     return files, names
 
 def getStats(file):
-    #print(file)
     nlp = spacy.load('nl_core_news_sm')
     nlp.max_length = 1100000
     doc = nlp(open(file, errors='backslashreplace').read())
