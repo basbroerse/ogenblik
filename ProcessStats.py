@@ -407,7 +407,7 @@ def main():
     df10 = processData(data_z10, data_t10, data_l10, data_d10, data_p10)
     
     # bestand om resultaten in op te slaan
-    file_out = 'Results.xlsx'
+    file_out = 'spacyStatistieken.xlsx'
     sheets = ['Canoniek','Moderne bestsellers']
     
     with pd.ExcelWriter(file_out) as writer:
