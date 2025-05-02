@@ -29,18 +29,22 @@ def getStats(file):
     #print(file)
     nlp = spacy.load('nl_core_news_sm')
     nlp.max_length = 1100000
-    doc = nlp(open(file, errors='backslashreplace').read())
+    
+    doc = nlp(open(file, errors='backslashreplace', encoding='UTF-8').read())
+    # .replace('\n\n',' ').replace('\n','').replace('\t','')
     
     lengtes  = []       # lijst voor zinslengtes
-    dep_lens = []       # lijstje voor afstanden tussen hoofden en kinderen
-    pos = []            # lijstje voor woordsoorten
+    dep_lens = []       # lijst voor afstanden tussen hoofden en kinderen
+    pos = []            # lijst voor woordsoorten
     
     # zinnen
     zinnen = list(doc.sents)
 
     for zin in zinnen:
         x = len(zin)
-        lengtes.append(x)
+        
+        if not (zin[0].pos_ == 'SPACE' or zin[0].text == '‘' or zin[0].text == '’'):
+            lengtes.append(x)
     
     # tokens en lemma's
     tokens = [token.text for token in doc]
