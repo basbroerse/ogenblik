@@ -84,6 +84,7 @@ def main():
     scatterPlot((df70.loc[:,'adjs'],df10.loc[:,'adjs']),(df70.loc[:,'advs'],df10.loc[:,'advs']),'Woordsoorten','Bijvoeglijk naamwoorden','Bijwoorden')
     boxPlot((df70.loc[:,'adps'],df10.loc[:,'adps']),'Voorzetsels')
     boxPlot((df70.loc[:,'prons'],df10.loc[:,'prons']),'Persoonlijk voornaamwoorden')
+    scatterPlot((df70.loc[:,'nouns'],df10.loc[:,'nouns']),(df70.loc[:,'prons'],df10.loc[:,'prons']),'Woordsoorten','Aandeel zelfstandig naamwoorden','Aandeel persoonlijk voornaamwoorden')
     
     sentDistr()
     
