@@ -340,8 +340,9 @@ def partOfSpeech(data):
     adjs = counts['ADJ'] / counts.sum()
     advs = counts['ADV'] / counts.sum()
     adps = counts['ADP'] / counts.sum()
+    prons = counts['PRON'] / counts.sum()
         
-    return nouns, verbs, adjs, advs, adps
+    return nouns, verbs, adjs, advs, adps, prons
 
 def processData(z_data, t_data, l_data, d_data, p_data):
     n = len(z_data)
@@ -363,17 +364,17 @@ def processData(z_data, t_data, l_data, d_data, p_data):
         z_mean, z_mode, z_median, z_var, z_std, z_minnie, z_maxie = numData(zinnen)
         d_mean, d_mode, d_median, d_var, d_std, d_minnie, d_maxie = numData(dependencies)
         ttr, ttr_basic = typeToken(tokens, lemmas)
-        p_nouns, p_verbs, p_adjs, p_advs, p_adps = partOfSpeech(pos)
+        p_nouns, p_verbs, p_adjs, p_advs, p_adps, p_prons = partOfSpeech(pos)
         
         z[i] = [z_mean, z_mode, z_median, z_var, z_std, z_minnie, z_maxie]
         d[i] = [d_mean, d_mode, d_median, d_var, d_std, d_minnie, d_maxie]
         t.append(len(tokens))
         l.append(len(lemmas))
         r[i] = [ttr, ttr_basic]
-        p[i] = [p_nouns, p_verbs, p_adjs, p_advs, p_adps]
+        p[i] = [p_nouns, p_verbs, p_adjs, p_advs, p_adps, p_prons]
     
     # data opslaan in dataframe
-    df = pd.DataFrame((z[:,0],z[:,1],z[:,2],z[:,3],z[:,4],z[:,5],z[:,6],t,l,r[:,0],r[:,1],d[:,0],d[:,1],d[:,2],d[:,3],d[:,4],d[:,5],d[:,6],p[:,0],p[:,1],p[:,2],p[:,3],p[:,4]),index=['z_mean','z_mode','z_median','z_variance','z_std','z_min','z_max','tokens','lemmas','ttr','ttr_basic','d_mean','d_mode','d_median','d_variance','d_std','d_min','d_max','nouns','verbs','adjs','advs','adps'],columns=z_data.index).transpose()
+    df = pd.DataFrame((z[:,0],z[:,1],z[:,2],z[:,3],z[:,4],z[:,5],z[:,6],t,l,r[:,0],r[:,1],d[:,0],d[:,1],d[:,2],d[:,3],d[:,4],d[:,5],d[:,6],p[:,0],p[:,1],p[:,2],p[:,3],p[:,4],p[:,5]),index=['z_mean','z_mode','z_median','z_variance','z_std','z_min','z_max','tokens','lemmas','ttr','ttr_basic','d_mean','d_mode','d_median','d_variance','d_std','d_min','d_max','nouns','verbs','adjs','advs','adps','prons'],columns=z_data.index).transpose()
 
     return df
 
