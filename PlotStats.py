@@ -63,6 +63,7 @@ def main():
     scatterPlot((df70.loc[:,'z_mean'],df10.loc[:,'z_mean']),(df70.loc[:,'z_mode'],df10.loc[:,'z_mode']),'Zinslengte','Gemiddelde zinslengte','Modus')
     boxPlot((df70.loc[:,'z_mean'],df10.loc[:,'z_mean']),'Zinslengte (gemiddelde)')
     boxPlot((df70.loc[:,'z_median'],df10.loc[:,'z_median']),'Zinslengte (mediaan)')
+    boxPlot((df70.loc[:,'z_mode'],df10.loc[:,'z_mode']),'Zinslengte (modus)')
     boxPlot((df70.loc[:,'z_std'],df10.loc[:,'z_std']),'Zinslengte (standaarddeviatie)')
     
     # ttr: scatterplot van ttr tegen scv en boxplots van ttr en scv
