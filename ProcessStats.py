@@ -352,7 +352,7 @@ def processData(z_data, t_data, l_data, d_data, p_data):
     t = []                  # aantal tokens per boek
     l = []                  # aantal unieke lemma's per boek
     r = np.zeros((n,2))     # statistieken voor tyke-token ratio
-    p = np.zeros((n,5))     # statistieken voor woordsoorten
+    p = np.zeros((n,6))     # statistieken voor woordsoorten
     
     for i in range(n):
         zinnen = z_data.iloc[i].dropna()
