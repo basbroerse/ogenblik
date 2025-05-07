@@ -75,13 +75,15 @@ def main():
     scatterPlot((df70.loc[:,'d_mean'],df10.loc[:,'d_mean']),(df70.loc[:,'d_std'],df10.loc[:,'d_std']),'Dependency length','Gemiddelde','Standaarddeviatie')    
     boxPlot((df70.loc[:,'d_mean'],df10.loc[:,'d_mean']),'Dependency length (gemiddelde)')
     
-    # woordsoorten: boxplots en scatterplots van nouns, verbs, adjectieven en bijwoorden
+    # woordsoorten: boxplots en scatterplots van nouns, verbs, adjectieven, bijwoorden, voorzetsels en persoonlijk voornaamwoorden
     boxPlot((df70.loc[:,'nouns'],df10.loc[:,'nouns']),'Zelfstandig naamwoorden')
     boxPlot((df70.loc[:,'verbs'],df10.loc[:,'verbs']),'Werkwoorden')
     scatterPlot((df70.loc[:,'nouns'],df10.loc[:,'nouns']),(df70.loc[:,'verbs'],df10.loc[:,'verbs']),'Woordsoorten','Aandeel zelfstandig naamwoorden','Aandeel werkwoorden')
     boxPlot((df70.loc[:,'adjs'],df10.loc[:,'adjs']),'Bijvoeglijk naamwoorden')
     boxPlot((df70.loc[:,'advs'],df10.loc[:,'advs']),'Bijwoorden')
     scatterPlot((df70.loc[:,'adjs'],df10.loc[:,'adjs']),(df70.loc[:,'advs'],df10.loc[:,'advs']),'Woordsoorten','Bijvoeglijk naamwoorden','Bijwoorden')
+    boxPlot((df70.loc[:,'adps'],df10.loc[:,'adps']),'Voorzetsels')
+    boxPlot((df70.loc[:,'prons'],df10.loc[:,'prons']),'Persoonlijk voornaamwoorden')
     
     sentDistr()
     
