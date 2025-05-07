@@ -32,6 +32,10 @@ def main():
     tTest(df70.loc[:,'adjs'],df10.loc[:,'adjs'])
     print('\nAdverbs:')
     tTest(df70.loc[:,'advs'],df10.loc[:,'advs'])
+    print('\nAdpositions:')
+    tTest(df70.loc[:,'adps'],df10.loc[:,'adps'])
+    print('\nPronouns:')
+    tTest(df70.loc[:,'prons'],df10.loc[:,'prons'])
     
     print('\nTTR:')
     tTest(df70.loc[:,'ttr'],df10.loc[:,'ttr'])
